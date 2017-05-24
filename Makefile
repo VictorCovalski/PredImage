@@ -3,7 +3,7 @@ CC=g++
 IFTAGS=-std=c++11
 all: codificador decodificador
 
-codificador: codificador.cpp
+codificador: codificador.cpp jo_jpeg.cpp
 	$(CC) $(IFTAGS) codificador.cpp -o codificador
 
 decodificador: decodificador.cpp
