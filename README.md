@@ -3,5 +3,6 @@ Predictive JPEG Compression for Networks and Multimedia Course at the Federal Un
 
 # Made by:
 Victor Renan Covalski Junes <vrcjunes@inf.ufpel.edu.br>
+
 Henrique Pereira Borges <hpborges@gmail.com>
 
