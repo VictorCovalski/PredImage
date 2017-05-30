@@ -4,25 +4,35 @@
 
 int main(int argc, char const *argv[])
 {
+	if(argc < 3)
+	{
+		std::cout << "$./decodificador <arquivo bin entrada> <img raw saida>" << std::endl;
+		return 1;
+	}
+
 	std::ifstream entrada_raw;
-
 	entrada_raw.open(argv[1],std::ifstream::binary);
+
 	std::ofstream saida_raw;
+	saida_raw.open(argv[2],std::ofstream::binary); 
 
-	saida_raw.open("original.raw",std::ofstream::binary); 
-
-	char last;
-	entrada_raw.get(last);
-	saida_raw << last;
+	unsigned int last;
+	entrada_raw.read((char *)&last, sizeof(int));
+	std::cout << last << std::endl;
+	char car = last;
+	saida_raw << car;
 
 	while(entrada_raw.good())
 	{
-		char curr;
-		entrada_raw.get(curr);
-		char c = (char) ((int)last) - ((int)curr);
-		saida_raw << c;
+		int curr;
+		entrada_raw.read((char *)&curr, sizeof(int));
+		
+		int c = last - curr;
+		
+		car = c;
+		saida_raw << car;
 		last = c;
 	}
-	
+	saida_raw.close();
 	return 0;
 }
